@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Courses from "./pages/Courses";
-import EnrollNow from "./pages/EnrollNow";
 import Contact from "./pages/Contact";
+import EnrollNow from "./pages/EnrollNow";
+import Activities from "./pages/Activities";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AllAnnouncement from "./pages/AllAnnouncement";
@@ -28,7 +28,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/courses" element={<Courses />} />
+          <Route path="/activities" element={<Activities />} />
           <Route path="/enrollNow" element={<EnrollNow />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />

@@ -2,10 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { 
   FaChevronDown, 
-  FaQuestionCircle, 
   FaArrowRight, 
-  FaHeadset,
-  FaLightbulb 
+  FaLightbulb,
+  FaHeadset 
 } from "react-icons/fa";
 
 export default function HomeFAQ() {
@@ -30,55 +29,91 @@ export default function HomeFAQ() {
     },
   ];
 
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className=" py-8 lg:py-24 bg-white dark:bg-gray-950 transition-colors">
+    <section className=" py-8 lg:py-20 lg:py-32 bg-white dark:bg-gray-950 transition-colors overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           
-          {/* Left Side: Text & Icon */}
-          <div className="space-y-6 justify-center text-cen lg:items-start   flex flex-col">
-            <div className="flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 w-fit px-4 py-1.5 rounded-full border border-blue-100 dark:border-blue-800/50">
-               <FaLightbulb className="text-blue-600 dark:text-blue-400 text-sm" />
-               <span className="text-blue-600 dark:text-blue-400 font-bold tracking-widest text-xs uppercase">Help Center</span>
+          {/* Left Side: Content */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+            <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-full border border-blue-100 dark:border-blue-800/50 shadow-sm">
+              <FaLightbulb className="text-blue-600 dark:text-blue-400 text-sm animate-pulse" />
+              <span className="text-blue-600 dark:text-blue-400 font-black tracking-[0.2em] text-[10px] uppercase">
+                Help Center
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white leading-tight">
-              Frequently Asked <span className="text-blue-600">Questions</span>
+
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white leading-[1.1]">
+                Frequently Asked<span className="text-blue-600"> Questions</span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-              We understand that choosing the right school is a significant decision. 
-              Here are answers to the questions parents ask us most frequently about life at Pearly Gate.
+
+            <p className="text-gray-500 dark:text-gray-400 text-sm lg:text-lg leading-relaxed max-w-xl">
+              Everything you need to know about Pearly Gate School. If you can't find what you're looking for, our support team is just a call away.
             </p>
-            <div className="pt-4">
-               <Link to="/faqs" className="inline-flex items-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-2xl hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-all shadow-xl group">
-                 View All FAQs 
-                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-               </Link>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+              <Link 
+                to="/faqs" 
+                className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-2xl hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-all shadow-xl group"
+              >
+                Explore Full FAQ 
+                <FaArrowRight className=" group-hover:translate-x-1 transition-transform" />
+              </Link>
+              
+              <Link 
+                to="/contact" 
+                className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-gray-100 dark:border-gray-800 text-gray-600 dark:text-gray-300 font-bold rounded-2xl hover:border-blue-600 hover:text-blue-600 transition-all"
+              >
+                <FaHeadset className="text-sm" />
+                Contact Support
+              </Link>
             </div>
           </div>
 
           {/* Right Side: Accordion */}
-          <div className="space-y-4">
-            {homeFaqs.map((faq, index) => (
-              <div key={index} className="group border border-gray-100 dark:border-gray-800 rounded-[2rem] bg-gray-50 dark:bg-gray-900/50 hover:border-blue-200 dark:hover:border-blue-900 transition-all">
-                <button 
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)} 
-                  className="w-full flex items-center justify-between p-6 text-left"
+          <div className="space-y-4 w-full">
+            {homeFaqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div 
+                  key={index} 
+                  className={`group border transition-all duration-300 rounded-[10px] 
+                    ${isOpen 
+                      ? "border-blue-600 bg-white dark:bg-gray-900 shadow-xl shadow-blue-500/10" 
+                      : "border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/30 hover:border-blue-300 dark:hover:border-blue-800"
+                    }`}
                 >
-                  <span className="font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
-                    {faq.question}
-                  </span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${openIndex === index ? "bg-blue-600 text-white rotate-180" : "bg-white dark:bg-gray-800 text-gray-400 shadow-sm"}`}>
-                    <FaChevronDown className="text-xs" />
+                  <button 
+                    onClick={() => toggleFAQ(index)} 
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center justify-between p-5 text-left outline-none"
+                  >
+                    <span className={`font-bold text-sm md:text-lg transition-colors duration-300 
+                      ${isOpen ? "text-blue-600" : "text-gray-800 dark:text-gray-200"}`}>
+                      {faq.question}
+                    </span>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 
+                      ${isOpen ? "bg-blue-600 text-white rotate-180" : "bg-white dark:bg-gray-800 text-gray-400 shadow-sm"}`}>
+                      <FaChevronDown className="text-xs" />
+                    </div>
+                  </button>
+                  
+                  {/* Animated Answer Container */}
+                  <div className={`overflow-hidden transition-all duration-300 ease-in-out
+                    ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
+                    <div className="px-5 pb-5 text-sm text-gray-500 dark:text-gray-400 text-base leading-relaxed border-t border-gray-50 dark:border-gray-800/50 pt-3">
+                      {faq.answer}
+                    </div>
                   </div>
-                </button>
-                {openIndex === index && (
-                  <div className="px-6 pb-6 text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-4 animate-fadeIn">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
+
         </div>
       </div>
     </section>

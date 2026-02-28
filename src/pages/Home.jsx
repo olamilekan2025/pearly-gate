@@ -8,6 +8,7 @@ import WhyChooseUs from "./whyChooseUs";
 import AboutUs from "./AboutUs";
 import Announcements from "./Announcement";
 import Faq from "./Faq";
+import UpcomingActivities from "./UpcomingActivities";
 // Import your images
 import student1 from "../assets/student 1.jpg";
 import student2 from "../assets/student 2.jpg";
@@ -73,7 +74,7 @@ export default function Home() {
           learning environment for future leaders.
         </p>
 
-        <div className=" mt-10 flex flex-col sm:flex-row gap-4 justify-center"data-aos="fade-left">
+        <div className=" mt-10 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-left">
           <Link
             to="/enrollNow"
             className="px-8 py-4 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-all shadow-lg hover:border-2 hover:scale-105 flex-col-row items-center justify-center inline-flex"
@@ -115,6 +116,7 @@ export default function Home() {
       <WhyChooseUs />
       <AboutUs />
       <Announcements />
+      <UpcomingActivities />
       <Faq />
       </>
   );
