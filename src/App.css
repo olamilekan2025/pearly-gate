@@ -1,0 +1,17 @@
+/* App-specific styles can go here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tailwind helper styles */
+.nav-link {
+  @apply text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium;
+}
+
+.mobile-link {
+  @apply block text-gray-700 dark:text-gray-200 font-medium hover:text-blue-600;
+}
+
+.mobile-btn {
+  @apply px-4 py-2 rounded-lg text-sm font-medium;
+}

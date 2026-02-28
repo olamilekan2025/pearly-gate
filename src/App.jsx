@@ -1,0 +1,47 @@
+import { Routes, Route } from "react-router-dom";
+
+// Pages
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Courses from "./pages/Courses";
+import EnrollNow from "./pages/EnrollNow";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AllAnnouncement from "./pages/AllAnnouncement";
+import AllFaq from "./pages/AllFaq";
+
+// Dashboards
+import StudentDashboard from "./dashboard/StudentDashboard";
+import AdminDashboard from "./dashboard/AdminDashboard";
+
+// Components
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+export default function App() {
+  return (
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+      <Navbar />
+
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/enrollNow" element={<EnrollNow />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/allAnnouncement" element={<AllAnnouncement />} />
+          <Route path="/faqs" element={<AllFaq />} />
+
+          <Route path="/student" element={<StudentDashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
