@@ -20,21 +20,26 @@ export default function Navbar() {
           {/* <Link to="/" className="hover:text-blue-500 dark:text-gray-300">
             Home
           </Link> */}
-          <Link to="/about" className="hover:text-blue-500 dark:text-gray-300">
-            About
-          </Link>
-          <Link
+
+           <Link
             to="/activities"
             className="hover:text-blue-500 dark:text-gray-300"
           >
             Activities
           </Link>
-          {/* <Link
-            to="/allAnnouncement"
+          <Link to="/about" className="hover:text-blue-500 dark:text-gray-300">
+            About
+          </Link>
+          <Link to="/gallery" className="hover:text-blue-500 dark:text-gray-300">
+            Gallery
+          </Link>
+         
+          <Link
+            to="/contact"
             className="hover:text-blue-500 dark:text-gray-300"
           >
-            All Announcement
-          </Link> */}
+            Contact
+          </Link>
           <DarkModeToggle />
           <Link to="/login" className="dark:text-white">
             Login
@@ -100,6 +105,14 @@ export default function Navbar() {
           >
             Home
           </Link>
+
+           <Link
+            to="/activities"
+            onClick={() => setOpen(false)}
+            className="text-lg font-medium dark:text-white dark:border-gray-800 pb-2"
+          >
+            Activities
+          </Link>
           <Link
             to="/about"
             onClick={() => setOpen(false)}
@@ -108,19 +121,20 @@ export default function Navbar() {
             About
           </Link>
           <Link
-            to="/activities"
+            to="/gallery"
             onClick={() => setOpen(false)}
-            className="text-lg font-medium dark:text-white dark:border-gray-800 pb-2"
+            className="text-lg font-medium dark:text-white  dark:border-gray-800 pb-2"
           >
-            Activities
+            Gallery
           </Link>
-          {/* <Link
-            to="/allAnnouncement"
+         
+          <Link
+            to="/contact"
             onClick={() => setOpen(false)}
             className="text-lg font-medium dark:text-white dark:border-gray-800 pb-2"
           >
-            All Announcement
-          </Link> */}
+            Contact
+          </Link>
 
           <div className="flex flex-col gap-3 pt-2">
             <Link

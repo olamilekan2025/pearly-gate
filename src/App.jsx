@@ -9,7 +9,10 @@ import Activities from "./pages/Activities";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AllAnnouncement from "./pages/AllAnnouncement";
+import ChoosePearlyGate from "./pages/ChoosePearlyGate";
 import AllFaq from "./pages/AllFaq";
+import Gallery from "./pages/Gallery";
+import CountUp from "react-countup";
 
 // Dashboards
 import StudentDashboard from "./dashboard/StudentDashboard";
@@ -34,8 +37,10 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/allAnnouncement" element={<AllAnnouncement />} />
+          <Route path="/choosePearlyGate" element={<ChoosePearlyGate />} />
+          <Route path="/countup" element={<CountUp />} />
           <Route path="/faqs" element={<AllFaq />} />
-
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/student" element={<StudentDashboard />} />
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
