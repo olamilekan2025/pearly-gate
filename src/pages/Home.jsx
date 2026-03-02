@@ -30,11 +30,15 @@ export default function Home() {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  // 4. Auto-play: changes image every 5 seconds
+  // 4. Auto-play: changes image every 10 seconds
   useEffect(() => {
-    const timer = setInterval(nextSlide, 10000);
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev === images.length - 1 ? 0 : prev + 1
+      );
+    }, 10000);
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [images.length]);
      useEffect(() => {
             Aos.init({
                 offset: 120,

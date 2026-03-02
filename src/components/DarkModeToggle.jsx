@@ -3,14 +3,16 @@ import { CiDark } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
 
 export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    return (
+      localStorage.getItem("theme") === "dark" ||
+      document.documentElement.classList.contains("dark")
+    );
+  });
   const [mounted, setMounted] = useState(false);
 
+  // only need to mark mounted after first render
   useEffect(() => {
-    // Initialize from localStorage on mount
-    const isDark = localStorage.getItem("theme") === "dark" || 
-                   document.documentElement.classList.contains("dark");
-    setDarkMode(isDark);
     setMounted(true);
   }, []);
 

@@ -1,4 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./Auth/AuthContext";
 
 // Pages
 import Home from "./pages/Home";
@@ -12,7 +14,7 @@ import AllAnnouncement from "./pages/AllAnnouncement";
 import ChoosePearlyGate from "./pages/ChoosePearlyGate";
 import AllFaq from "./pages/AllFaq";
 import Gallery from "./pages/Gallery";
-import CountUp from "react-countup";
+import CountUp from "./pages/CountUp";
 
 // Dashboards
 import StudentDashboard from "./dashboard/StudentDashboard";
@@ -22,6 +24,25 @@ import AdminDashboard from "./dashboard/AdminDashboard";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+/**
+ * PROTECTED ROUTE COMPONENT
+ * Redirects to login if not authenticated.
+ * Redirects to Home if the role doesn't match.
+ */
+const ProtectedRoute = ({ children, allowedRole }) => {
+  const { currentUser } = useContext(AuthContext);
+
+  if (!currentUser) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (allowedRole && currentUser.role !== allowedRole) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
@@ -29,6 +50,7 @@ export default function App() {
 
       <main className="flex-grow">
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/activities" element={<Activities />} />
@@ -41,8 +63,29 @@ export default function App() {
           <Route path="/countup" element={<CountUp />} />
           <Route path="/faqs" element={<AllFaq />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/student" element={<StudentDashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+
+          {/* Student Protected Route */}
+          <Route 
+            path="/studentDashboard" 
+            element={
+              <ProtectedRoute allowedRole="student">
+                <StudentDashboard />
+              </ProtectedRoute>
+            } 
+          />
+
+          {/* Admin Protected Route */}
+          <Route 
+            path="/adminDashboard" 
+            element={
+              <ProtectedRoute allowedRole="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            } 
+          />
+
+          {/* 404 Redirect - catches any broken links */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
