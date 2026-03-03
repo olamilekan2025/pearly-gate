@@ -13,7 +13,7 @@ import Register from "./pages/Register";
 import AllAnnouncement from "./pages/AllAnnouncement";
 import ChoosePearlyGate from "./pages/ChoosePearlyGate";
 import AllFaq from "./pages/AllFaq";
-import Gallery from "./pages/Gallery";
+// import Gallery from "./pages/Gallery";
 import CountUp from "./pages/CountUp";
 import NotFound from "./pages/NotFound";
 
@@ -63,7 +63,7 @@ export default function App() {
           <Route path="/choosePearlyGate" element={<ChoosePearlyGate />} />
           <Route path="/countup" element={<CountUp />} />
           <Route path="/faqs" element={<AllFaq />} />
-          <Route path="/gallery" element={<Gallery />} />
+          {/* <Route path="/gallery" element={<Gallery />} /> */}
 
           {/* Student Protected Route */}
           <Route 
