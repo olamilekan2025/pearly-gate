@@ -125,7 +125,7 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
             className="text-lg font-medium dark:text-white  dark:border-gray-800 pb-2"
           >
-            About
+            Gallery
           </Link>
          
           <Link
@@ -145,7 +145,7 @@ export default function Navbar() {
               Login
             </Link>
             <Link
-              to="/enroll"
+              to="/enrollNow"
               onClick={() => setOpen(false)}
               className="w-full text-center py-3 rounded-lg bg-blue-600 text-white font-bold"
             >

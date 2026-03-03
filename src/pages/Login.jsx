@@ -13,8 +13,10 @@ export default function Login() {
     const user = login(email, password);
 
     if (user) {
-      if (user.role === "admin") navigate("/admin");
-      else navigate("/student");
+      // after successful login send user to the dashboard route
+      // make sure the path matches the routes declared in App.jsx
+    if (user.role === "admin") navigate("/adminDashboard");
+      else navigate("/studentDashboard");
     } else {
       alert("Invalid email or password. If you just enrolled, ensure you used the correct credentials.");
     }
