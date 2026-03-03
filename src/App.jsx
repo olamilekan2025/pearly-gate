@@ -15,6 +15,7 @@ import ChoosePearlyGate from "./pages/ChoosePearlyGate";
 import AllFaq from "./pages/AllFaq";
 import Gallery from "./pages/Gallery";
 import CountUp from "./pages/CountUp";
+import NotFound from "./pages/NotFound";
 
 // Dashboards
 import StudentDashboard from "./dashboard/StudentDashboard";
@@ -84,8 +85,8 @@ export default function App() {
             } 
           />
 
-          {/* 404 Redirect - catches any broken links */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* 404 page - catches any broken links */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
