@@ -49,7 +49,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
       <Navbar />
 
-      <main className="flex-grow">
+      <main className="flex-grow max-w-7xl mx-auto w-full">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />

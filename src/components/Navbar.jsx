@@ -1,159 +1,127 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+
+
+
+import { useState, useEffect } from "react";
+import { NavLink, Link } from "react-router-dom";
 import DarkModeToggle from "./DarkModeToggle";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  // ✅ LOCK BODY SCROLL WHEN MENU IS OPEN
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // cleanup (important)
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
+
+  const navClass = ({ isActive }) =>
+    `relative transition font-medium ${
+      isActive
+        ? "text-blue-600 dark:text-blue-400 after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-blue-600"
+        : "text-gray-700 dark:text-gray-300 hover:text-blue-500"
+    }`;
+
   return (
     <nav className="relative bg-white dark:bg-gray-900 border-b dark:border-gray-800 z-50">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 lg:px-20 h-16 flex items-center justify-between">
+
         {/* Logo */}
-        <Link to="/" className="block w-fit">
-          <h1 className="font-bold text-xl text-gray-900 dark:text-white hover:text-blue-600 transition-colors">
-            School App
-          </h1>
+        <Link to="/" className="font-bold text-xl text-gray-900 dark:text-white">
+          PEARLY GATE
         </Link>
 
-        {/* Desktop Menu (Hidden on Mobile) */}
-        <div className="hidden md:flex gap-8 items-center">
-          {/* <Link to="/" className="hover:text-blue-500 dark:text-gray-300">
-            Home
-          </Link> */}
-
-           <Link
-            to="/activities"
-            className="hover:text-blue-500 dark:text-gray-300"
-          >
-            Activities
-          </Link>
-          <Link to="/about" className="hover:text-blue-500 dark:text-gray-300">
-            About
-          </Link>
-          <Link to="/gallery" className="hover:text-blue-500 dark:text-gray-300">
-            Gallery
-          </Link>
-         
-          <Link
-            to="/contact"
-            className="hover:text-blue-500 dark:text-gray-300"
-          >
-            Contact
-          </Link>
-          <DarkModeToggle />
-          <Link to="/login" className="dark:text-white">
-            Login
-          </Link>
-          <Link
-            to="/enrollNow"
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg"
-          >
-            Enroll
-          </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          <NavLink to="/" end className={navClass}>Home</NavLink>
+          <NavLink to="/activities" className={navClass}>Activities</NavLink>
+          <NavLink to="/about" className={navClass}>About</NavLink>
+          <NavLink to="/gallery" className={navClass}>Gallery</NavLink>
+          <NavLink to="/contact" className={navClass}>Contact</NavLink>
         </div>
 
-        {/* Mobile Controls (Toggle + Burger) */}
-        <div className="flex md:hidden items-center gap-4 ">
+        {/* Desktop Actions */}
+        <div className="hidden md:flex items-center gap-4">
+          <DarkModeToggle />
+          <NavLink to="/login" className="text-gray-700 dark:text-gray-300">
+            Login
+          </NavLink>
+          <NavLink
+            to="/enrollNow"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"
+          >
+            Enroll
+          </NavLink>
+        </div>
+
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center gap-3">
           <DarkModeToggle />
           <button
-            onClick={() => setOpen(!open)}
-            className="text-gray-700 dark:text-white focus:outline-none "
+            onClick={() => setOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+            className="p-2 rounded-md bg-blue-600 text-white"
           >
-            {/* Toggle Icon: Changes from Burger to X */}
-            <svg
-              className="w-8 h-7 bg-blue-700 rounded px-2 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {open ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7" />
               )}
             </svg>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {/* 'absolute' ensures it floats over the content.
-          'inset-x-0' makes it full width.
-      */}
-      <div
-        className={`${
-          open
-            ? "opacity-100 translate-y-1"
-            : "opacity-0 -translate-x-50 pointer-events-none"
-        } absolute inset-x-0 top-16 h-100 transition-all duration-300 ease-in-out md:hidden bg-white dark:bg-gray-900 border-b dark:border-gray-800 shadow-xl`}
-      >
-        <div className="flex flex-col p-4 space-y-4">
-          <Link
-            to="/"
-            onClick={() => setOpen(false)}
-            className="text-lg font-medium dark:text-white  dark:border-gray-800 pb-2"
-          >
-            Home
-          </Link>
+      {/* ✅ MOBILE MENU – ONLY WHEN OPEN */}
+      {open && (
+        <div className="md:hidden fixed inset-x-0 top-16 h-[calc(100vh-4rem)] bg-white dark:bg-gray-900 border-b dark:border-gray-800 shadow-lg z-40">
+          <div className="flex flex-col p-4 space-y-4 overflow-y-auto">
+            <NavLink to="/" end onClick={() => setOpen(false)} className={navClass}>
+              Home
+            </NavLink>
+            <NavLink to="/activities" onClick={() => setOpen(false)} className={navClass}>
+              Activities
+            </NavLink>
+            <NavLink to="/about" onClick={() => setOpen(false)} className={navClass}>
+              About
+            </NavLink>
+            <NavLink to="/gallery" onClick={() => setOpen(false)} className={navClass}>
+              Gallery
+            </NavLink>
+            <NavLink to="/contact" onClick={() => setOpen(false)} className={navClass}>
+              Contact
+            </NavLink>
 
-           <Link
-            to="/activities"
-            onClick={() => setOpen(false)}
-            className="text-lg font-medium dark:text-white dark:border-gray-800 pb-2"
-          >
-            Activities
-          </Link>
-          <Link
-            to="/about"
-            onClick={() => setOpen(false)}
-            className="text-lg font-medium dark:text-white  dark:border-gray-800 pb-2"
-          >
-            About
-          </Link>
-          <Link
-            to="/gallery"
-            onClick={() => setOpen(false)}
-            className="text-lg font-medium dark:text-white  dark:border-gray-800 pb-2"
-          >
-            Gallery
-          </Link>
-         
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
-            className="text-lg font-medium dark:text-white dark:border-gray-800 pb-2"
-          >
-            Contact
-          </Link>
+            <div className="pt-4 space-y-3">
+              <NavLink
+                to="/login"
+                onClick={() => setOpen(false)}
+                className="block text-center py-2 rounded-lg border dark:border-gray-700 dark:text-white"
+              >
+                Login
+              </NavLink>
 
-          <div className="flex flex-col gap-3 pt-2">
-            <Link
-              to="/login"
-              onClick={() => setOpen(false)}
-              className="w-full text-center py-2 rounded-lg border dark:text-white dark:border-gray-700"
-            >
-              Login
-            </Link>
-            <Link
-              to="/enrollNow"
-              onClick={() => setOpen(false)}
-              className="w-full text-center py-3 rounded-lg bg-blue-600 text-white font-bold"
-            >
-              Enroll Now
-            </Link>
+              <NavLink
+                to="/enrollNow"
+                onClick={() => setOpen(false)}
+                className="block text-center py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold"
+              >
+                Enroll Now
+              </NavLink>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }

@@ -46,7 +46,7 @@ export default function HomeActivities() {
 
   return (
     <section className="py-10  bg-gray-100 dark:bg-gray-950 transition-colors justify-center text-center">
-      <div className="max-w-7xl mx-auto px-1 justify-center text-center">
+      <div className="max-w-7xl mx-auto px-1 lg:px-20 justify-center text-center">
         
         {/* Header */}
         <div className="text-center mb-16 space-y-4 justify-center ">
@@ -64,7 +64,7 @@ export default function HomeActivities() {
         </div>
 
         {/* List of Activities & Events */}
-        <div className="grid Lg:grid-cols-2  gap-8 mb-16 px-3 lg:px-8">
+        <div className="grid Lg:grid-cols-2  gap-8 mb-16 px-3 ">
           {activities.map((item) => (
             <div 
               key={item.id} 

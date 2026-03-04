@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-10 lg:py-20 bg-gray-100 dark:bg-gray-950 transition-colors ">
+    <section className="py-10 lg:px-20 lg:py-20 bg-gray-100 dark:bg-gray-950 transition-colors ">
       <div className="max-w-7xl mx-auto px-6 justify-center items-center flex flex-col">
         {/* Header */}
         <div className="text-center  gap-5 lg:w-[60%] mb-10 justify-center items-center flex flex-col ">

@@ -279,13 +279,13 @@ export default function EnrollNow() {
   return (
     <>
     <EnrollHero/>
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 lg:py-20  px-2 py-10 lg:px-10 lg:p-20 ">
-      <form onSubmit={handleSubmit} className="bg-white w-full lg:w-[70%] max-w-5xl lg:py-20 py-10 px-2 lg:px-20 lg:p-2 rounded-xl shadow-lg space-y-2 lg:space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 lg:py-20  px-2 py-10  lg:p-20">
+      <form onSubmit={handleSubmit} className="bg-white w-full   lg:py-20 py-10 px-2 lg:px-20 lg:p-2 rounded-xl shadow-lg space-y-2 lg:space-y-8">
 
         {/* Progress bar with numbers/icons */}
         <div className="relative mb-6 justify-center flex">
-          <div className="w-[90%] lg:w-full h-2 bg-gray-200 rounded relative">
-            <div className="h-2 bg-blue-600 rounded transition-all" style={{ width: `${progressPercentage}%` }} />
+          <div className="w-[90%] lg:w-full h-1 lg-h-2 bg-gray-200 rounded relative">
+            <div className="h-1 lg:h-2 bg-blue-600 rounded transition-all" style={{ width: `${progressPercentage}%` }} />
             {steps.map((_, index) => {
               const completed = currentStep > index;
               const isActive = currentStep === index;

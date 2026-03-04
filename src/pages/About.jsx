@@ -27,7 +27,7 @@ export default function AboutHeader() {
       </div>
 
       {/* Count Up Section */}
-      <div className="max-w-6xl mx-auto px-4 pb-20">
+      <div className="max-w-6xl mx-auto px-5 pb-20 ">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 text-center">
 
           <div className="bg-white dark:bg-gray-900 py-7 px-1 rounded-xl hover:ring-2 hover:ring-blue-700 shadow">

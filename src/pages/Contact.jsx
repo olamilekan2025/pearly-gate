@@ -22,7 +22,7 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="max-w-7xl mx-auto px-2 lg:px-6 py-16 lg:mt-8">
+      <div className="max-w-7xl mx-auto px-2 lg:px-20 py-16 lg:mt-8 ">
         {/* Balanced 2-Column Grid for Equal Widths */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           

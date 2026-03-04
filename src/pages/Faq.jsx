@@ -35,7 +35,7 @@ export default function HomeFAQ() {
 
   return (
     <section className=" py-8 lg:py-20 lg:py-32 bg-white dark:bg-gray-950 transition-colors overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           
           {/* Left Side: Content */}

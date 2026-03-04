@@ -86,8 +86,8 @@ export default function AllActivities() {
   const filteredEvents = allEvents.filter(e => activeTab === "All" || e.category === activeTab);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-8 lg:py-20 transition-colors">
-      <div className="max-w-5xl mx-auto px-6" >
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-8 px-6 lg:px-20 lg:py-20 transition-colors">
+      <div className=" mx-auto " >
         
         {/* Navigation */}
         <Link to="/" className="inline-flex items-center gap-2 text-blue-600 font-bold mb-10 hover:-translate-x-2 transition-all group">
@@ -98,15 +98,15 @@ export default function AllActivities() {
           <h1 className="text-3xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6">
             School <span className="text-blue-600">Calendar</span>
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-sm lg:text-lg max-w-5xl leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-sm lg:text-lg leading-relaxed">
             Stay up to date with the Pearly Gate community. Use the filters below to browse 
             specific types of activities, academic meetings, and special celebrations.
           </p>
         </header>
 
         {/* Tab Filters */}
-        <div className="flex  items-center gap-2 overflow-x-auto pb-1 lg:pb-6 mb-12 scrollbar-hide">
-          <div className="flex items-center gap-2 bg-white dark:bg-gray-900 p-2 rounded-full shadow-sm border border-gray-100 dark:border-gray-800">
+        <div className="flex  items-center gap-2 overflow-x-auto pb-1 lg:pb-6 mb-12 scrollbar-hide lg:justify-center">
+          <div className="flex lg:w-full items-center gap-2 bg-white dark:bg-gray-900 p-2 rounded-full shadow-sm border border-gray-100 dark:border-gray-800">
             <div className="p-2 text-gray-400">
                 <FaFilter />
             </div>

@@ -90,6 +90,8 @@ const Milestones = () => {
         </div>
       </div>
 
+      <div className='w-full justify-center flex lg:px-20'>
+
       <div className='bg-blue-600 w-full h-[350px]'>
         <div className='flex items-center justify-center h-full flex-col gap-6 px-4 text-center'>
             <div className='text-center'>
@@ -108,6 +110,7 @@ const Milestones = () => {
             </Link>
             </div>
         </div>
+      </div>
       </div>
     </section>
   );

@@ -46,7 +46,7 @@ export default function About() {
 
   return (
     <section className="py-10 lg:py-20 bg-white dark:bg-gray-950 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 lg:px-8 justify-center items-center flex flex-col ">
+      <div className="max-w-7xl mx-auto px-4 lg:px-20 lg:px-8 justify-center items-center flex flex-col ">
         {/* Header */}
         <div className="text-center mb-20 justify-center items-center flex flex-col">
           <div className="flex items-center gap-2 w-fit bg-blue-50 dark:bg-blue-900/20 px-4 py-1.5 rounded-full border border-blue-100 dark:border-blue-800/50 mb-4 transition-all hover:bg-blue-100 dark:hover:bg-blue-900/40">

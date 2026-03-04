@@ -53,7 +53,7 @@ export default function Announcements() {
 
   return (
     <section className=" py-10 lg:py-20 bg-gray-50 dark:bg-gray-900 transition-colors justify-center items-center flex flex-col gap-10">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-20">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-col justify-center items-start md:items-end mb-12 gap-6 ">

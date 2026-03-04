@@ -3,7 +3,7 @@ import { FaBullseye, FaEye, FaHeart, FaCheckCircle } from "react-icons/fa";
 
 const MissionVisionSection = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-6 lg:px-20 py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Mission Card */}
