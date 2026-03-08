@@ -40,7 +40,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <NavLink to="/" end className={navClass}>Home</NavLink>
+          {/* <NavLink to="/" end className={navClass}>Home</NavLink> */}
           <NavLink to="/activities" className={navClass}>Activities</NavLink>
           <NavLink to="/about" className={navClass}>About</NavLink>
           <NavLink to="/gallery" className={navClass}>Gallery</NavLink>
@@ -55,7 +55,7 @@ export default function Navbar() {
           </NavLink>
           <NavLink
             to="/enrollNow"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 px-4 py-2 rounded-lg"
           >
             Enroll
           </NavLink>
@@ -67,7 +67,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen((prev) => !prev)}
             aria-label="Toggle menu"
-            className="p-2 rounded-md bg-blue-600 text-white"
+            className="p-2 rounded-md bg-blue-600 text-white dark:bg-blue-500"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {open ? (
@@ -86,9 +86,9 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden fixed inset-x-0 top-16 h-[calc(100vh-4rem)] bg-white dark:bg-gray-900 border-b dark:border-gray-800 shadow-lg z-40">
           <div className="flex flex-col p-4 space-y-4 overflow-y-auto">
-            <NavLink to="/" end onClick={() => setOpen(false)} className={navClass}>
+            {/* <NavLink to="/" end onClick={() => setOpen(false)} className={navClass}>
               Home
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/activities" onClick={() => setOpen(false)} className={navClass}>
               Activities
             </NavLink>
@@ -114,7 +114,7 @@ export default function Navbar() {
               <NavLink
                 to="/enrollNow"
                 onClick={() => setOpen(false)}
-                className="block text-center py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold"
+                className="block text-center py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold dark:bg-blue-500 dark:hover:bg-blue-600"
               >
                 Enroll Now
               </NavLink>

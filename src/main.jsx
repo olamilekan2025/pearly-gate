@@ -4,13 +4,16 @@ import App from "./App";
 import "./index.css"; 
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./Auth/AuthContext"; // Import your provider here
+import { ThemeProvider } from "./context/ThemeContext"; // Import ThemeProvider
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       {/* The Provider must wrap App to share the 'users' and 'login' logic */}
       <AuthProvider>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

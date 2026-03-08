@@ -128,7 +128,7 @@ export default function EnrollNow() {
   };
 
   const progressPercentage = Math.round(((currentStep+1)/steps.length)*100);
-  const inputClass="w-full p-3 border rounded-lg";
+  const inputClass="w-full p-3 border rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors";
   const gridClass="grid grid-cols-1 md:grid-cols-2 gap-4";
 
   const renderStep = () => {
@@ -137,34 +137,34 @@ export default function EnrollNow() {
         return (
           <div className={gridClass}>
             <div>
-              <label className="block mb-1 font-medium">Surname</label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Surname</label>
               <input name="surname" value={form.surname} onChange={handleChange} className={inputClass} />
               {errors.surname && <p className="text-red-500 text-sm">{errors.surname}</p>}
             </div>
             <div>
-              <label className="block mb-1 font-medium">Other Name</label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Other Name</label>
               <input name="otherName" value={form.otherName} onChange={handleChange} className={inputClass} />
               {errors.otherName && <p className="text-red-500 text-sm">{errors.otherName}</p>}
             </div>
             <div>
-              <label className="block mb-1 font-medium">Sex</label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Sex</label>
               <select name="sex" value={form.sex} onChange={handleChange} className={inputClass}>
                 <option value="">Select Sex</option><option>Male</option><option>Female</option>
               </select>
               {errors.sex && <p className="text-red-500 text-sm">{errors.sex}</p>}
             </div>
             <div>
-              <label className="block mb-1 font-medium">Email</label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Email</label>
               <input type="email" name="studentEmail" value={form.studentEmail} onChange={handleChange} className={inputClass} />
               {errors.studentEmail && <p className="text-red-500 text-sm">{errors.studentEmail}</p>}
             </div>
             <div>
-              <label className="block mb-1 font-medium">Password</label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Password</label>
               <input type="password" name="password" value={form.password} onChange={handleChange} className={inputClass} />
               {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
             </div>
             <div>
-              <label className="block mb-1 font-medium">Date of Birth</label>
+              <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Date of Birth</label>
               <input type="date" name="dob" value={form.dob} onChange={handleChange} className={inputClass} />
               {errors.dob && <p className="text-red-500 text-sm">{errors.dob}</p>}
             </div>
@@ -173,22 +173,22 @@ export default function EnrollNow() {
       case 1:
         return (
           <div className={gridClass}>
-            <div><label className="block mb-1 font-medium">Residential Address</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Residential Address</label>
               <input name="residentialAddress" value={form.residentialAddress} onChange={handleChange} className={inputClass} />
               {errors.residentialAddress && <p className="text-red-500 text-sm">{errors.residentialAddress}</p>}
             </div>
-            <div><label className="block mb-1 font-medium">Postal Address</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Postal Address</label>
               <input name="postalAddress" value={form.postalAddress} onChange={handleChange} className={inputClass} />
             </div>
-            <div><label className="block mb-1 font-medium">State of Origin</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">State of Origin</label>
               <input name="stateOfOrigin" value={form.stateOfOrigin} onChange={handleChange} className={inputClass} />
               {errors.stateOfOrigin && <p className="text-red-500 text-sm">{errors.stateOfOrigin}</p>}
             </div>
-            <div><label className="block mb-1 font-medium">Local Government</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Local Government</label>
               <input name="localGovernment" value={form.localGovernment} onChange={handleChange} className={inputClass} />
               {errors.localGovernment && <p className="text-red-500 text-sm">{errors.localGovernment}</p>}
             </div>
-            <div><label className="block mb-1 font-medium">Home Town</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Home Town</label>
               <input name="homeTown" value={form.homeTown} onChange={handleChange} className={inputClass} />
               {errors.homeTown && <p className="text-red-500 text-sm">{errors.homeTown}</p>}
             </div>
@@ -197,14 +197,14 @@ export default function EnrollNow() {
       case 2:
         return (
           <div className={gridClass}>
-            <div><label className="block mb-1 font-medium">Nationality</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Nationality</label>
               <input name="nationality" value={form.nationality} onChange={handleChange} className={inputClass} />
               {errors.nationality && <p className="text-red-500 text-sm">{errors.nationality}</p>}
             </div>
-            <div><label className="block mb-1 font-medium">Tribe</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Tribe</label>
               <input name="tribe" value={form.tribe} onChange={handleChange} className={inputClass} />
             </div>
-            <div><label className="block mb-1 font-medium">Blood Group</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Blood Group</label>
               <select name="bloodGroup" value={form.bloodGroup} onChange={handleChange} className={inputClass}>
                 <option value="">Select Blood Group</option>
                 <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
@@ -217,21 +217,21 @@ export default function EnrollNow() {
       case 3:
         return (
           <div className={gridClass}>
-            <div><label className="block mb-1 font-medium">Guardian Name</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Guardian Name</label>
               <input name="guardianName" value={form.guardianName} onChange={handleChange} className={inputClass} />
               {errors.guardianName && <p className="text-red-500 text-sm">{errors.guardianName}</p>}
             </div>
-            <div><label className="block mb-1 font-medium">Guardian Phone</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Guardian Phone</label>
               <input name="guardianPhone" value={form.guardianPhone} onChange={handleChange} className={inputClass} />
               {errors.guardianPhone && <p className="text-red-500 text-sm">{errors.guardianPhone}</p>}
             </div>
-            <div><label className="block mb-1 font-medium">Guardian Address</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Guardian Address</label>
               <input name="guardianAddress" value={form.guardianAddress} onChange={handleChange} className={inputClass} />
             </div>
-            <div><label className="block mb-1 font-medium">Guardian Email</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Guardian Email</label>
               <input name="guardianEmail" value={form.guardianEmail} onChange={handleChange} className={inputClass} />
             </div>
-            <div><label className="block mb-1 font-medium">Guardian Home Address</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Guardian Home Address</label>
               <input name="guardianHomeAddress" value={form.guardianHomeAddress} onChange={handleChange} className={inputClass} />
             </div>
           </div>
@@ -239,17 +239,17 @@ export default function EnrollNow() {
       case 4:
         return (
           <div className={gridClass}>
-            <div><label className="block mb-1 font-medium">Grade Applying For</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Grade Applying For</label>
               <select name="gradeApplying" value={form.gradeApplying} onChange={handleChange} className={inputClass}>
                 <option value="">Select Grade</option>
                 {classes.map(c => <option key={c}>{c}</option>)}
               </select>
               {errors.gradeApplying && <p className="text-red-500 text-sm">{errors.gradeApplying}</p>}
             </div>
-            <div><label className="block mb-1 font-medium">Last School Attended</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Last School Attended</label>
               <input name="lastSchool" value={form.lastSchool} onChange={handleChange} className={inputClass} />
             </div>
-            <div><label className="block mb-1 font-medium">Last Class Attended</label>
+            <div><label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Last Class Attended</label>
               <select name="lastClass" value={form.lastClass} onChange={handleChange} className={inputClass}>
                 <option value="">Select Class</option>
                 {classes.map(c => <option key={c}>{c}</option>)}
@@ -261,14 +261,14 @@ export default function EnrollNow() {
       case 5:
         return (
           <div>
-            <label className="block mb-1 font-medium">Basic Medical Information</label>
+            <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Basic Medical Information</label>
             <textarea name="basicMedicalInfo" value={form.basicMedicalInfo} onChange={handleChange} rows={4} className={inputClass} />
           </div>
         );
       case 6:
         return (
           <div>
-            <label className="block mb-1 font-medium">Detailed Medical Information</label>
+            <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">Detailed Medical Information</label>
             <textarea name="medicalDetails" value={form.medicalDetails} onChange={handleChange} rows={4} className={inputClass} />
           </div>
         );
@@ -279,12 +279,12 @@ export default function EnrollNow() {
   return (
     <>
     <EnrollHero/>
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 lg:py-20  px-2 py-10  lg:p-20">
-      <form onSubmit={handleSubmit} className="bg-white w-full   lg:py-20 py-10 px-2 lg:px-20 lg:p-2 rounded-xl shadow-lg space-y-2 lg:space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 lg:py-20 px-2 py-10 lg:p-20 transition-colors">
+      <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 w-full lg:py-20 py-10 px-2 lg:px-20 lg:p-2 rounded-xl shadow-lg space-y-2 lg:space-y-8 transition-colors">
 
         {/* Progress bar with numbers/icons */}
         <div className="relative mb-6 justify-center flex">
-          <div className="w-[90%] lg:w-full h-1 lg-h-2 bg-gray-200 rounded relative">
+          <div className="w-[90%] lg:w-full h-1 lg-h-2 bg-gray-200 dark:bg-gray-700 rounded relative">
             <div className="h-1 lg:h-2 bg-blue-600 rounded transition-all" style={{ width: `${progressPercentage}%` }} />
             {steps.map((_, index) => {
               const completed = currentStep > index;
@@ -292,8 +292,8 @@ export default function EnrollNow() {
               return (
                 <div
                   key={index}
-                  className={`absolute top-0 -mt-2 lg:-mt-4 w-5 h-5 lg:w-10  lg:h-10 ring-2 ring-gray-400 rounded-full flex items-center justify-center 
-                  ${completed ? "bg-white text-white" : isActive ? "bg-indigo-600 text-white" : "bg-gray-100 text-gray-600 "}`}
+                  className={`absolute top-0 -mt-2 lg:-mt-4 w-5 h-5 lg:w-10 lg:h-10 ring-2 ring-gray-400 dark:ring-gray-500 rounded-full flex items-center justify-center 
+                  ${completed ? "bg-white text-white" : isActive ? "bg-indigo-600 text-white" : "bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300"}`}
                   style={{ left: `${(index/(steps.length-1))*100}%`, transform: "translateX(-50%)" }}
                   >
                   {completed ? <Check className="w-6 h-6 text-green-500" /> : index+1}
@@ -305,8 +305,8 @@ export default function EnrollNow() {
 
         {/* Step Title & Description */}
         <div className="mb-6">
-          <h2 className="text-xl md:text-2xl font-bold">{stepDescriptions[currentStep].title}</h2>
-          <p className="text-gray-600">{stepDescriptions[currentStep].description}</p>
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{stepDescriptions[currentStep].title}</h2>
+          <p className="text-gray-600 dark:text-gray-400">{stepDescriptions[currentStep].description}</p>
         </div>
 
         <div ref={scrollRef} />
@@ -314,11 +314,11 @@ export default function EnrollNow() {
 
         {/* Navigation */}
         <div className="flex justify-between mt-6">
-          {currentStep>0 && <button type="button" onClick={prevStep} className="px-6 py-2 bg-gray-300 rounded">Previous</button>}
+          {currentStep>0 && <button type="button" onClick={prevStep} className="px-6 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">Previous</button>}
           {currentStep<steps.length-1 ?
-            <button type="button" onClick={nextStep} className="px-6 py-2 bg-indigo-600 text-white rounded">Next</button>
+            <button type="button" onClick={nextStep} className="px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors">Next</button>
             :
-            <button type="submit" className="px-6 py-2 bg-green-600 text-white rounded">Submit</button>
+            <button type="submit" className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">Submit</button>
           }
         </div>
 
@@ -327,3 +327,4 @@ export default function EnrollNow() {
             </>
   );
 }
+
